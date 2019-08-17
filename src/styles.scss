@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+.vh-100 {
+  min-height: 100vh;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+html {
+  height: 100vh;
+}
+body {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+  }
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+agm-map {
+  height: 100%;
+  width: 100%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

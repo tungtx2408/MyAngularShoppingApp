@@ -1,0 +1,98 @@
+<section>
+  <div class="container py-5">
+    <div class="d-flex w-100 justify-content-between py-3">
+      <h1 class="m-0">Products list</h1>
+      <button class="btn btn-success" routerLink="/product/new">Add</button>
+    </div>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th class="text-center" style="width: 48px">#</th>
+          <th style="width: 72px">Image</th>
+          <th>Name</th>
+          <th class="text-center">Price</th>
+          <th class="text-center" style="width: 175px">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th class="text-center">{{ product.id }}</th>
+          <td>
+            <img
+              src="{{ product.image }}"
+              style="width: 72px"
+              alt="Error 404!"
+            />
+          </td>
+          <td>{{ product.name }}</td>
+          <td class="text-center">{{ product.price }}$</td>
+          <td class="text-center">
+            <button
+              type="button"
+              routerLink="/products/edit/{{ product.id }}"
+              class="btn btn-success mr-3"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Delete
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Delete
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Do you want to delete {{ product.name }}
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      data-dismiss="modal"
+                      (click)="removeProduct(product)"
+                    >
+                      Save changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
